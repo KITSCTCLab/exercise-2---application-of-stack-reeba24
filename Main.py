@@ -65,7 +65,7 @@ class Evaluate:
     a=0
     c=0
     for element in expression:
-      if element .isnumeric():
+      if element.isnumeric():
         a=a+1
         else:
           c=c+1
@@ -85,24 +85,28 @@ class Evaluate:
       The result of evaluated postfix expression.
     """
     # Write your code here
-    stack=[]
+   stack = []
     for i in expression:
       if i.isnumeric():
         stack.append(int(i))
-       if len(stack)>=2:
-        if i=='+':
-          stack[-2]=stack[-2]+stack[-1]
+      if len(stack) >= 2:
+        if i == '+':
+          stack[-2] = stack[-2] + stack[-1]
           stack.pop()
-         elif i=='-':
-          stack[-2]=stack[-2]-stack[-1]
+        elif i == '-':
+          stack[-2] = stack[-2] - stack[-1]
           stack.pop()
-         elif i=='/':
-          stack[-2]=stack[-2]/stack[-1]
+        elif i == '*':
+          stack[-2] = stack[-2] * stack[-1]
           stack.pop()
-         elif i=='^':
-          stack[-2]=stack[-2]^stack[-1]
+        elif i == '/':
+          stack[-2] = stack[-2] / stack[-1]
           stack.pop()
-      return int(stack[-1])
+        elif i == '^':
+          stack[-2] = stack[-2] ^ stack[-1]
+          stack.pop()
+    return int(stack[-1])
+
 
 
 # Do not change the following code
